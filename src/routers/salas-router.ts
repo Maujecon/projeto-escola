@@ -1,14 +1,17 @@
 import express from 'express'
 import { SalasController } from '../controllers/SalasController'
-import Container from 'typedi';
+import Container, { Inject } from 'typedi';
+import { SalaRepository } from '../repositories/salaRepository'
 
 const salaService = express.Router();
 
+// public constructor(@Inject("salaRepository") private salaRepository: SalaRepository){ }
+
 salaService.get('/salas', (req, res) => {
-  const controller = Container.get<SalasController>("SalasController");
-  controller.listarSalas.bind(controller);
-  console.log("router salas");
-  res.status(200).json();
+  // const controller = Container.get<SalasController>("SalasController");
+  //exports.handler = controller.listarSalas.bind(controller);
+  // SalaRepository.
+    res.status(200).json("Sala controller");
 })
 
 
